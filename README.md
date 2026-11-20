@@ -185,9 +185,10 @@ composer bench       # PHPBench
 composer security    # advisories (composer audit)
 ```
 
-Laravel 8 and 9 are end of life. Composer refuses to install them when
-advisories apply, so on those versions set
-`composer config policy.advisories.block false` in your own project, as CI does.
+Older Laravel lines have open security advisories, and Composer refuses to
+install them while those apply (CI hit this on 8, 10 and 11). To test the package
+on one of them, set `composer config policy.advisories.block false`, as CI
+does. Running a Laravel version with open advisories is your decision.
 
 ## Security
 

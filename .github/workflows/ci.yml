@@ -23,10 +23,10 @@ jobs:
         include:
           - { laravel: '8', php: '8.1', testbench: '^6.47', eol: true }
           - { laravel: '9', php: '8.1', testbench: '^7.0', eol: true }
-          - { laravel: '10', php: '8.1', testbench: '^8.0' }
-          - { laravel: '10', php: '8.3', testbench: '^8.0' }
-          - { laravel: '11', php: '8.2', testbench: '^9.0' }
-          - { laravel: '11', php: '8.4', testbench: '^9.0' }
+          - { laravel: '10', php: '8.1', testbench: '^8.0', eol: true }
+          - { laravel: '10', php: '8.3', testbench: '^8.0', eol: true }
+          - { laravel: '11', php: '8.2', testbench: '^9.0', eol: true }
+          - { laravel: '11', php: '8.4', testbench: '^9.0', eol: true }
           - { laravel: '12', php: '8.2', testbench: '^10.0' }
           - { laravel: '12', php: '8.4', testbench: '^10.0' }
     steps:
@@ -40,7 +40,9 @@ jobs:
           coverage: none
           tools: composer:v2
 
-      - name: Allow end-of-life Laravel versions to resolve
+      # Composer refuses every release of these lines because of published
+      # advisories. The package is still tested on them, as users run them.
+      - name: Allow Laravel lines with open advisories to resolve
         if: ${{ matrix.eol }}
         run: composer config policy.advisories.block false
 

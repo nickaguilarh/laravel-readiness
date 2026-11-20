@@ -3,8 +3,9 @@
 ## Supported versions
 
 Security fixes go to the latest release. The package supports the Laravel
-versions listed in `composer.json`, including 8.x and 9.x, which Laravel itself
-no longer patches. Running those is your decision and your risk.
+versions listed in `composer.json`. Several of those lines have open Laravel
+advisories and no longer get fixes from Laravel. Running them is your decision
+and your risk.
 
 ## Reporting a vulnerability
 
