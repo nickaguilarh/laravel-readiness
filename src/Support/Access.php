@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Support;
+namespace Readiness\Support;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\IpUtils;

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Http;
+namespace Readiness\Http;
 
 use Closure;
 use Illuminate\Http\Request;
-use NickAguilarH\Readiness\Drain;
+use Readiness\Drain;
 use Symfony\Component\HttpFoundation\Response;
 
 /**

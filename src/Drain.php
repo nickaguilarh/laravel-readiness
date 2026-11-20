@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness;
+namespace Readiness;
 
 use InvalidArgumentException;
 use RuntimeException;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness;
+namespace Readiness;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
@@ -10,16 +10,16 @@ use Illuminate\Contracts\Redis\Factory as RedisFactory;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use NickAguilarH\Readiness\Checks\DatabaseCheck;
-use NickAguilarH\Readiness\Checks\HorizonCheck;
-use NickAguilarH\Readiness\Checks\RedisCheck;
-use NickAguilarH\Readiness\Checks\StaleDrainCheck;
-use NickAguilarH\Readiness\Console\DrainCommand;
-use NickAguilarH\Readiness\Console\DrainStatusCommand;
-use NickAguilarH\Readiness\Console\UndrainCommand;
-use NickAguilarH\Readiness\Http\ReadinessController;
-use NickAguilarH\Readiness\Http\RejectWhileDraining;
-use NickAguilarH\Readiness\Support\Access;
+use Readiness\Checks\DatabaseCheck;
+use Readiness\Checks\HorizonCheck;
+use Readiness\Checks\RedisCheck;
+use Readiness\Checks\StaleDrainCheck;
+use Readiness\Console\DrainCommand;
+use Readiness\Console\DrainStatusCommand;
+use Readiness\Console\UndrainCommand;
+use Readiness\Http\ReadinessController;
+use Readiness\Http\RejectWhileDraining;
+use Readiness\Support\Access;
 
 final class ReadinessServiceProvider extends ServiceProvider
 {

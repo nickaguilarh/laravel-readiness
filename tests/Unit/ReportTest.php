@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Tests\Unit;
+namespace Readiness\Tests\Unit;
 
-use NickAguilarH\Readiness\Report;
 use PHPUnit\Framework\TestCase;
+use Readiness\Report;
 
 final class ReportTest extends TestCase
 {

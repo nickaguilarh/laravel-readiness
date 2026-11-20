@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Tests\Feature;
+namespace Readiness\Tests\Feature;
 
 use Illuminate\Contracts\Redis\Factory;
-use NickAguilarH\Readiness\Checks;
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Readiness;
-use NickAguilarH\Readiness\Support\Access;
-use NickAguilarH\Readiness\Support\Probe;
-use NickAguilarH\Readiness\Tests\TestCase;
+use Readiness\Checks;
+use Readiness\Drain;
+use Readiness\Readiness;
+use Readiness\Support\Access;
+use Readiness\Support\Probe;
+use Readiness\Tests\TestCase;
 use RuntimeException;
 
 final class EndpointTest extends TestCase

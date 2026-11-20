@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness;
+namespace Readiness;
 
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Support\Probe;
 
 final class Report
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Checks;
+namespace Readiness\Checks;
 
 use Illuminate\Contracts\Foundation\Application;
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Support\Probe;
 
 /**
  * Fails while `artisan down` is active. The maintenance middleware already

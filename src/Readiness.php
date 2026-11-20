@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness;
+namespace Readiness;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
-use NickAguilarH\Readiness\Checks\Check;
-use NickAguilarH\Readiness\Checks\DrainingCheck;
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Checks\Check;
+use Readiness\Checks\DrainingCheck;
+use Readiness\Support\Probe;
 
 /**
  * Builds the configured checks and runs them under one budget.

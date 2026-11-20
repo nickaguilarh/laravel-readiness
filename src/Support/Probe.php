@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Support;
+namespace Readiness\Support;
 
 use Throwable;
 

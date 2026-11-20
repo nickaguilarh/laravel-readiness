@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Checks;
+namespace Readiness\Checks;
 
 use Illuminate\Contracts\Redis\Factory;
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Support\Probe;
 
 final class RedisCheck implements Check
 {

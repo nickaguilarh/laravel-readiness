@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Checks;
+namespace Readiness\Checks;
 
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Support\Probe;
 
 interface Check
 {

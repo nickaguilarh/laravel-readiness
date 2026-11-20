@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Http;
+namespace Readiness\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Readiness;
-use NickAguilarH\Readiness\Report;
-use NickAguilarH\Readiness\Support\Access;
+use Readiness\Drain;
+use Readiness\Readiness;
+use Readiness\Report;
+use Readiness\Support\Access;
 
 final class ReadinessController
 {

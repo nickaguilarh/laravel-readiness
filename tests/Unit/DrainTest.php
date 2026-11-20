@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Tests\Unit;
+namespace Readiness\Tests\Unit;
 
 use InvalidArgumentException;
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Tests\TestCase;
+use Readiness\Drain;
+use Readiness\Tests\TestCase;
 use RuntimeException;
 
 final class DrainTest extends TestCase

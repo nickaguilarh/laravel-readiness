@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Tests\Unit;
+namespace Readiness\Tests\Unit;
 
 use Illuminate\Http\Request;
-use NickAguilarH\Readiness\Support\Access;
 use PHPUnit\Framework\TestCase;
+use Readiness\Support\Access;
 
 final class AccessTest extends TestCase
 {

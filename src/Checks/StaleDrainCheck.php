@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Checks;
+namespace Readiness\Checks;
 
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Drain;
+use Readiness\Support\Probe;
 
 /**
  * Warns when a drain has been active for longer than expected, a sign that

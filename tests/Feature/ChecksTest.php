@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Tests\Feature;
+namespace Readiness\Tests\Feature;
 
 use Illuminate\Contracts\Redis\Factory;
 use Illuminate\Database\DatabaseManager;
-use NickAguilarH\Readiness\Checks\DatabaseCheck;
-use NickAguilarH\Readiness\Checks\DrainingCheck;
-use NickAguilarH\Readiness\Checks\HorizonCheck;
-use NickAguilarH\Readiness\Checks\MaintenanceCheck;
-use NickAguilarH\Readiness\Checks\RedisCheck;
-use NickAguilarH\Readiness\Checks\StaleDrainCheck;
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Support\Probe;
-use NickAguilarH\Readiness\Tests\TestCase;
+use Readiness\Checks\DatabaseCheck;
+use Readiness\Checks\DrainingCheck;
+use Readiness\Checks\HorizonCheck;
+use Readiness\Checks\MaintenanceCheck;
+use Readiness\Checks\RedisCheck;
+use Readiness\Checks\StaleDrainCheck;
+use Readiness\Drain;
+use Readiness\Support\Probe;
+use Readiness\Tests\TestCase;
 use RuntimeException;
 
 final class ChecksTest extends TestCase

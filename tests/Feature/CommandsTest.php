@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Tests\Feature;
+namespace Readiness\Tests\Feature;
 
 use Illuminate\Support\Facades\Artisan;
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Tests\TestCase;
+use Readiness\Drain;
+use Readiness\Tests\TestCase;
 
 final class CommandsTest extends TestCase
 {

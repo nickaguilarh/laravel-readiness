@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Checks;
+namespace Readiness\Checks;
 
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Drain;
+use Readiness\Support\Probe;
 
 /**
  * Fails while the instance is draining, which is what turns the readiness

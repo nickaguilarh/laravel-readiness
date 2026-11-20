@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Benchmarks;
+namespace Readiness\Benchmarks;
 
 use Illuminate\Http\Request;
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\Http\RejectWhileDraining;
-use NickAguilarH\Readiness\Support\Access;
-use NickAguilarH\Readiness\Support\Probe;
 use PhpBench\Attributes as Bench;
+use Readiness\Drain;
+use Readiness\Http\RejectWhileDraining;
+use Readiness\Support\Access;
+use Readiness\Support\Probe;
 use Symfony\Component\HttpFoundation\Response;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-use NickAguilarH\Readiness\Checks;
+use Readiness\Checks;
 
 return [
 
@@ -23,7 +23,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The checks to run, in order. Remove one to turn it off, or add your own
-    | class implementing NickAguilarH\Readiness\Checks\Check. They are
+    | class implementing Readiness\Checks\Check. They are
     | resolved from the container.
     |
     */

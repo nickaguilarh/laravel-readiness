@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Console;
+namespace Readiness\Console;
 
 use Illuminate\Console\Command;
-use NickAguilarH\Readiness\Drain;
+use Readiness\Drain;
 
 final class DrainStatusCommand extends Command
 {

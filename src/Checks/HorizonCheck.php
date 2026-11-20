@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Checks;
+namespace Readiness\Checks;
 
 use Closure;
 use Illuminate\Contracts\Container\Container;
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Support\Probe;
 use RuntimeException;
 
 /**

@@ -42,7 +42,7 @@ Pick the option that costs what you can afford.
 The hot path is a single `stat` call. No container, no config, no file read.
 
 ```php
-use NickAguilarH\Readiness\Drain;
+use Readiness\Drain;
 
 Route::get('/readyz', function () {
     if (Drain::isDraining()) {
@@ -64,7 +64,7 @@ Route::get('/readyz', ReadinessHandler::class)->middleware('readiness.drain');
 Run every configured check and get a `Report`:
 
 ```php
-$report = app(\NickAguilarH\Readiness\Readiness::class)->run();
+$report = app(\Readiness\Readiness::class)->run();
 
 return response()->json($report->toArray(), $report->httpStatus());
 ```
@@ -134,7 +134,7 @@ Configured in `config/readiness.php`, in order. Remove one to turn it off.
 | `horizon` | No master supervisor, or one is paused. Skipped if Horizon is not installed. |
 | `stale_drain` | Never fails, only warns when a drain is older than `stale_after`. |
 
-Add your own by implementing `NickAguilarH\Readiness\Checks\Check` and listing
+Add your own by implementing `Readiness\Checks\Check` and listing
 the class. It is resolved from the container.
 
 Each check has its own timeout and all of them share `budget` (3 s). A check that

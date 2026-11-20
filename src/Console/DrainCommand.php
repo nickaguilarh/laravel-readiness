@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Console;
+namespace Readiness\Console;
 
 use Illuminate\Console\Command;
 use InvalidArgumentException;
-use NickAguilarH\Readiness\Drain;
+use Readiness\Drain;
 use RuntimeException;
 
 final class DrainCommand extends Command

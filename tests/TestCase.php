@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Tests;
+namespace Readiness\Tests;
 
-use NickAguilarH\Readiness\Drain;
-use NickAguilarH\Readiness\ReadinessServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Readiness\Drain;
+use Readiness\ReadinessServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

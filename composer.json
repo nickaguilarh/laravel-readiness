@@ -44,19 +44,19 @@
     },
     "autoload": {
         "psr-4": {
-            "NickAguilarH\\Readiness\\": "src/"
+            "Readiness\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NickAguilarH\\Readiness\\Tests\\": "tests/",
-            "NickAguilarH\\Readiness\\Benchmarks\\": "benchmarks/"
+            "Readiness\\Tests\\": "tests/",
+            "Readiness\\Benchmarks\\": "benchmarks/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "NickAguilarH\\Readiness\\ReadinessServiceProvider"
+                "Readiness\\ReadinessServiceProvider"
             ]
         }
     },

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NickAguilarH\Readiness\Checks;
+namespace Readiness\Checks;
 
 use Illuminate\Database\DatabaseManager;
-use NickAguilarH\Readiness\Support\Probe;
+use Readiness\Support\Probe;
 
 final class DatabaseCheck implements Check
 {
