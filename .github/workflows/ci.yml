@@ -1,0 +1,130 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { laravel: '8', php: '8.1', testbench: '^6.47', eol: true }
+          - { laravel: '9', php: '8.1', testbench: '^7.0', eol: true }
+          - { laravel: '10', php: '8.1', testbench: '^8.0' }
+          - { laravel: '10', php: '8.3', testbench: '^8.0' }
+          - { laravel: '11', php: '8.2', testbench: '^9.0' }
+          - { laravel: '11', php: '8.4', testbench: '^9.0' }
+          - { laravel: '12', php: '8.2', testbench: '^10.0' }
+          - { laravel: '12', php: '8.4', testbench: '^10.0' }
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v2
+
+      - name: Allow end-of-life Laravel versions to resolve
+        if: ${{ matrix.eol }}
+        run: composer config policy.advisories.block false
+
+      - name: Install
+        run: |
+          composer remove --dev phpbench/phpbench phpstan/phpstan laravel/pint --no-update
+          composer require --dev "orchestra/testbench:${{ matrix.testbench }}" --no-update
+          composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Test
+        run: vendor/bin/phpunit
+
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.4'
+          coverage: pcov
+          tools: composer:v2
+
+      - run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Test with coverage
+        run: vendor/bin/phpunit --coverage-filter=src --coverage-clover=build/clover.xml --coverage-text
+
+      - name: Enforce the minimum
+        run: php scripts/check-coverage.php build/clover.xml 95 | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: coverage-clover
+          path: build/clover.xml
+          retention-days: 14
+
+  static-analysis:
+    name: Static analysis and style
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.4'
+          coverage: none
+          tools: composer:v2
+
+      - run: composer update --prefer-dist --no-interaction --no-progress
+      - run: composer analyse
+      - run: composer lint
+
+  benchmarks:
+    name: Benchmarks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Timings on shared runners are noisy. The run is published to the job
+    # summary and its assertions flag a regression, but they do not block.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.4'
+          coverage: none
+          tools: composer:v2
+
+      - run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Run benchmarks
+        run: |
+          {
+            echo '```'
+            vendor/bin/phpbench run benchmarks --report=aggregate
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
