@@ -190,6 +190,12 @@ install them while those apply (CI hit this on 8, 10 and 11). To test the packag
 on one of them, set `composer config policy.advisories.block false`, as CI
 does. Running a Laravel version with open advisories is your decision.
 
+## Releases
+
+Versions follow [Conventional Commits](https://www.conventionalcommits.org). A
+release pull request keeps the changelog and the next version up to date, and
+merging it creates the tag and the GitHub release.
+
 ## Security
 
 See [SECURITY.md](SECURITY.md) to report a vulnerability.
