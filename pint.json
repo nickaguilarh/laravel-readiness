@@ -1,0 +1,7 @@
+{
+    "preset": "laravel",
+    "notPath": ["config/readiness.php"],
+    "rules": {
+        "declare_strict_types": true
+    }
+}
